@@ -7,5 +7,5 @@ class Ingredient < ApplicationRecord
    # will always be true since all grandchildren have already been destroyed at this stage
    return self.doses.still_there.empty?
   end
-  
+
 end

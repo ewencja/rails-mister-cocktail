@@ -3,13 +3,15 @@ class DosesController < ApplicationController
   before_action :find_dose, only: [ :destroy]
 
   def new
+    @ingredients = Ingredient.all
     @dose = Dose.new
   end
 
   def create
+    @ingredients = Ingredient.all
     @dose = @cocktail.doses.build(dose_params)
     if @dose.save
-      redirect_to cocktail_doses
+      redirect_to cocktail_path(@cocktail)
     else
       render :new
     end
@@ -30,6 +32,6 @@ private
   end
 
   def find_dose
-    @dose = Dose.find(params[:dose_id])
+    @dose = Dose.find(params[:id])
   end
 end
