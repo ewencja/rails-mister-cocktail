@@ -2,10 +2,14 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @cocktail.name %>
+  <%= @cocktail.name %><br/>
+  <% unless @cocktail.photo.url(:standard).nil? %>
+  <%= image_tag @cocktail.photo.url(:standard) %>
+  <% end %>
 </p>
 
-<%= render 'cocktails/doses' %>
+<%= render 'cocktails/doses' %><br/>
+<%= render 'form', cocktail: @cocktail %>
 
 <%= link_to 'Add ingredients', new_cocktail_dose_path(@cocktail) %>
 <%= link_to 'Edit', edit_cocktail_path(@cocktail) %> |

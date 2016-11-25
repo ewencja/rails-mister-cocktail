@@ -17,6 +17,9 @@
         <td><%= link_to 'Show', cocktail %></td>
         <td><%= link_to 'Edit', edit_cocktail_path(cocktail) %></td>
         <td><%= link_to 'Destroy', cocktail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% unless cocktail.photo.url(:thumbnail).nil? %>
+        <td><%= image_tag cocktail.photo.url(:thumbnail) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Cocktail', new_cocktail_path %>
+<%= link_to 'Add new cocktail', new_cocktail_path %>
