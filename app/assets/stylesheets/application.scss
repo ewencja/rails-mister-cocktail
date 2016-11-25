@@ -13,3 +13,32 @@
 @import "components/index";
 @import "pages/index";
 @import "vendor/index";
+
+.table{
+  display: table;
+  padding: 5px;
+  border: solid 2px #0000FF;
+  width:70%;
+  margin-left:15%;
+  margin-right:15%;
+}
+.row{
+  display: table-row;
+  vertical-align: top;
+  padding-bottom: 10px;
+  border: solid 1px #00FF00;
+  border-left: 0px;
+}
+.cell{
+  display: table-cell;
+  vertical-align: top;
+  padding-left: 10px;
+  width: 300px;
+  text-align: left;
+  margin: 1px;
+  border: solid 1px #FF0000;
+}
+.td {
+  width: 100px;
+  font-style:italic;
+}

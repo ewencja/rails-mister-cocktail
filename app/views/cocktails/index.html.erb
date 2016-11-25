@@ -1,10 +1,47 @@
 <p id="notice"><%= notice %></p>
-<div class="container">
-  <div class="row">
-    <div class="col">
-<h1>Cocktails</h1>
 
-<table>
+<div class="container">
+  <h1 class="text-center">Welcome to the Cocktails Menu</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-4">
+          Name
+        </div>
+        <div class="col-xs-4">
+          Ingredients
+        </div>
+        <div class="col-xs-4">
+          Actions
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <% @cocktails.each do |cocktail| %>
+      <div class="row">
+        <div class="col-xs-4">
+          <% unless cocktail.photo.url(:thumbnail).nil? %>
+          <td><%= image_tag cocktail.photo.url(:thumbnail) %></td>
+          <% end %>
+          <%= cocktail.name %>
+        </div>
+        <div class="col-xs-4">
+          <%= render 'cocktails/doses', cocktail: cocktail %>
+        </div>
+        <div class="col-xs-4">
+          <td><%= link_to 'Show', cocktail %></td>
+          <td><%= link_to 'Edit', edit_cocktail_path(cocktail) %></td>
+          <td><%= link_to 'Destroy', cocktail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <br>
+    <%= link_to 'Add new cocktail', new_cocktail_path %>
+</div>
+
+
+<!-- <table>
   <thead>
     <tr>
       <th>Name</th>
@@ -16,6 +53,7 @@
     <% @cocktails.each do |cocktail| %>
       <tr>
         <td><%= cocktail.name %></td>
+        <td><%= render 'cocktails/doses', cocktail: cocktail %></td>
         <td><%= link_to 'Show', cocktail %></td>
         <td><%= link_to 'Edit', edit_cocktail_path(cocktail) %></td>
         <td><%= link_to 'Destroy', cocktail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -25,11 +63,4 @@
       </tr>
     <% end %>
   </tbody>
-</table>
-
-<br>
-
-<%= link_to 'Add new cocktail', new_cocktail_path %>
-</div>
-</div>
-</div>
+</table> -->

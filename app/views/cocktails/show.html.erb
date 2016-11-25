@@ -8,7 +8,7 @@
   <% end %>
 </p>
 
-<%= render 'cocktails/doses' %><br/>
+<%= render 'cocktails/doses', cocktail: @cocktail %><br/>
 <%= render 'form', cocktail: @cocktail %>
 
 <%= link_to 'Add ingredients', new_cocktail_dose_path(@cocktail) %>
